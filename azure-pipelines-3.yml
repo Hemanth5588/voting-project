@@ -26,8 +26,8 @@ stages:
 - stage: DeploytoQA
   displayName: DeploytoQA
   jobs:
-    - job: DeploytoQA
-      displayName: DeploytoQA
+    - job: CopyDockerComposefile
+      displayName: CopyDockerComposefile
       pool:
        name: 'Agent-1'
        steps:
@@ -35,3 +35,13 @@ stages:
           inputs:
           targetType: 'inline'
           script: 'scp /home/azureuser/myagent/_work/3/s/docker-compose.yml azureuser@40.119.43.230:/home/azureuser/'
+
+    - job: RunDockerComposefile
+      displayName: RunDockerComposefile
+      pool:
+       name: 'Agent-1'
+       steps:
+        - task: Bash@3
+          inputs:
+          targetType: 'inline'
+          script: 'azureuser@40.119.43.230 docker compose up -d'
