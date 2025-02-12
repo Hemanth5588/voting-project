@@ -6,8 +6,8 @@ trigger: none
 
 resources:
  pipelines:
-   - pipeline: Result-app
-     source: Result-app
+   - pipeline: Worker-app
+     source: Worker-app
      trigger: true
 
 variables:
