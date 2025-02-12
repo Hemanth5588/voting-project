@@ -19,23 +19,19 @@ variables:
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+pool:
+ name: 'Agent-1'
 
 stages:
-- stage: Build
-  displayName: Build and push stage
+- stage: DeploytoQA
+  displayName: DeploytoQA
   jobs:
-  - job: Build
-    displayName: Build
+  - job: DeploytoQA
+    displayName: DeploytoQA
     pool:
-      vmImage: $(vmImageName)
-    steps:
-    - task: Docker@2
-      displayName: Build and push an image to container registry
-      inputs:
-        command: buildAndPush
-        repository: $(imageRepository)
-        dockerfile: $(dockerfilePath)
-        containerRegistry: $(dockerRegistryServiceConnection)
-        tags: |
-          $(tag)
+     name: 'Agent-1'
+    steps: 
+     - task: Bash@3
+       inputs:
+        targetType: 'inline'
+        script: 'scp /home/azureuser/myagent/_work/3/s/docker-compose.yml azureuser@40.119.43.230:/home/azureuser/'
