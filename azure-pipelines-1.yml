@@ -6,7 +6,10 @@ trigger:
 - master
 
 resources:
-- repo: self
+ pipelines:
+   - pipeline: Voting-app
+     source: Voting-app
+     trigger: true
 
 variables:
   # Container registry service connection established during pipeline creation
@@ -30,7 +33,7 @@ stages:
       name: 'Agent-1'
     steps:
     - task: Docker@2
-      displayName: Build and push an image to container registry
+      displayName: BuildandPushResultapp
       inputs:
         command: buildAndPush
         repository: $(imageRepository)
