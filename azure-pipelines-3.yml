@@ -26,13 +26,13 @@ stages:
 - stage: DeploytoQA
   displayName: DeploytoQA
   jobs:
-    - job: CopyDockerComposefile
-      displayName: CopyDockerComposefile
-      pool:
-       name: 'Agent-1'
-       steps:
-        - task: Bash@3
-          inputs:
-          targetType: 'inline'
-          script: 'cp /home/azureuser/myagent/_work/4/s/docker-compose.yml /home/azureuser/'
+   - job: CopyDockerComposefile
+     displayName: CopyDockerComposefile
+     pool:
+      name: 'Agent-1'
+      steps:
+       - task: Bash@3
+         inputs:
+         targetType: 'inline'
+         script: 'cp /home/azureuser/myagent/_work/4/s/docker-compose.yml /home/azureuser/'
 
