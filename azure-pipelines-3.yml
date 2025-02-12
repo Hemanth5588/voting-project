@@ -36,12 +36,3 @@ stages:
           targetType: 'inline'
           script: 'scp /home/azureuser/myagent/_work/4/s/docker-compose.yml azureuser@40.119.43.230:/home/azureuser/'
 
-    - job: RunDockerComposefile
-      displayName: RunDockerComposefile
-      pool:
-       name: 'Agent-1'
-       steps:
-        - task: Bash@3
-          inputs:
-          targetType: 'inline'
-          script: 'ssh azureuser@40.119.43.230 docker compose up -d'
