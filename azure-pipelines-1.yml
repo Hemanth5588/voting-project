@@ -21,11 +21,11 @@ pool:
  name: 'Agent-1'
 
 stages:
-- stage: Build
-  displayName: Build and push stage
+- stage: BuildandPushResultapp
+  displayName: BuildandPushResultapp
   jobs:
-  - job: Build
-    displayName: Build
+  - job: BuildandPushResultapp
+    displayName: BuildandPushResultapp
     pool:
       name: 'Agent-1'
     steps:
