@@ -21,16 +21,16 @@ pool:
   name: 'Agent-1'
 
 stages:
-- stage: Build
-  displayName: Build and push stage
+- stage: BuildandPushWorkerapp
+  displayName: BuildandPushWorkerapp
   jobs:
-  - job: Build
-    displayName: Build
+  - job: BuildandPushWorkerapp
+    displayName: BuildandPushWorkerapp
     pool:
      name: 'Agent-1'
     steps:
     - task: Docker@2
-      displayName: Build and push an image to container registry
+      displayName: BuildandPushWorkerapp
       inputs:
         command: buildAndPush
         repository: $(imageRepository)
