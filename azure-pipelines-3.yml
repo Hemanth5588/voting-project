@@ -34,5 +34,5 @@ stages:
         - task: Bash@3
           inputs:
           targetType: 'inline'
-          script: 'scp /home/azureuser/myagent/_work/4/s/docker-compose.yml azureuser@40.119.43.230:/home/azureuser/'
+          script: 'cp /home/azureuser/myagent/_work/4/s/docker-compose.yml /home/azureuser/'
 
